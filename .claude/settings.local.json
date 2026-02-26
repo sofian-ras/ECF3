@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 -c \" import json with open\\(''RASMI_sofian_ecf3.ipynb'', ''r'', encoding=''utf-8''\\) as f: nb = json.load\\(f\\) for i, cell in enumerate\\(nb[''cells'']\\): if cell[''cell_type''] == ''code'': src = ''''.join\\(cell[''source'']\\) print\\(f''=== Cellule code {i} ===''\\) print\\(src[:500]\\) print\\(\\) elif cell[''cell_type''] == ''markdown'': src = ''''.join\\(cell[''source'']\\) print\\(f''=== Cellule markdown {i} ===''\\) print\\(src[:300]\\) print\\(\\) \")",
+      "Bash(python3 -c \":*)",
+      "Bash(python -c \":*)"
+    ]
+  }
+}
