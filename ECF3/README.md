@@ -86,7 +86,7 @@ Le notebook est organisé en 5 sections principales et 1 section bonus :
 - Identification des 20 clients les plus à risque (probabilité >80%)
 - Analyse des profils caractéristiques
 - Définition de 3 actions de rétention
-- Calcul du ROI (865% annuel)
+- Calcul du ROI (230% au mois 1, gain annuel net : 19 300 euros)
 
 ### Section 5 BONUS : Spark MLlib
 - Initialisation SparkSession
@@ -122,9 +122,9 @@ Les 20 clients identifiés comme les plus à risque :
 ### Rentabilité Estimée
 
 Actions de rétention sur les 20 clients jugés les plus à risque :
-- Coût des 3 actions : 2000 euros
-- Épargne annuelle (clients sauvés) : 19 300 euros
-- ROI annuel : 865%
+- Coût total des actions : 500 euros
+- Gain annuel net estimé : 19 300 euros
+- ROI mois 1 : 230%
 - Point mort : 2e mois
 
 ## Recommandations

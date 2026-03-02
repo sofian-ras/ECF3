@@ -21,7 +21,7 @@ Le modèle de régression logistique avec équilibrage de classes a été sélec
 
 L'analyse des 20 clients les plus à risque révèle que 55% sont effectivement des churners confirmés. Leur profil type : contrats mensuels (100%), services fiber optic (75%), tenure faible (moyenne 10 mois), et charges mensuelles élevées (moyenne 84 euros).
 
-L'implémentation des actions de rétention sur ces 20 clients générerait un ROI de 230% dès le premier mois et des économies annuelles estimées à 19 300 euros, pour un investissement total de 2000 euros.
+L'implémentation des actions de rétention sur ces 20 clients générerait un ROI de 230% dès le premier mois et des économies annuelles nettes estimées à 19 300 euros, pour un investissement total de 500 euros.
 
 ### Recommandation principale
 
@@ -217,17 +217,14 @@ Hypothèses de calcul :
 - Churners réels dans le top 20 : 11 clients
 - Taux de succès des actions de rétention : 30% (benchmark marché)
 - Clients effectivement sauvés : 11 x 0,30 = 3,3 clients
-- Coût moyen par action : 100 euros
-- Coût total des actions : 20 x 100 = 2000 euros
+- Coût moyen pondéré par client : 25 euros
+- Coût total des actions : 20 x 25 = 500 euros
 
 Gains économiques :
 - Revenu mensuel préservé : 3,3 clients x 500 euros = 1650 euros/mois
 - Gains cumulés sur 12 mois : 1650 x 12 = 19 800 euros
-- ROI premier mois : (1650 - 2000) / 2000 = -17,5% (investissement initial)
-- ROI mois 2 : (3300 - 2000) / 2000 = +65%
-- ROI annuel : (19 800 - 2000) / 2000 = +890%
-
-Correction après vérification : avec une économie de gains retenus de 19 300 euros annuels, le ROI se calcule (19 300 / 2000) - 1 = +865%, soit un retour sur investissement de 9,65 fois la mise initiale.
+- ROI premier mois : (1650 - 500) / 500 = +230%
+- Gain annuel net : (1650 x 12) - 500 = 19 300 euros
 
 Point mort atteint dès le second mois. Le projet est rentable même avec des hypothèses conservatrices de taux de succès à 30%.
 
@@ -281,7 +278,7 @@ Spark pour scoring temps réel : déployer le pipeline Spark sur un cluster pour
 
 Ce projet démontre la faisabilité et la rentabilité d'une approche prédictive pour la rétention client chez TeleCom+. Le modèle de régression logistique avec équilibrage de classes atteint un recall de 62% permettant l'identification de 188 churners sur 303 dans l'échantillon test.
 
-L'analyse des 20 clients les plus à risque révèle un profil type exploitable : contrats mensuels, services fiber optic, faible ancienneté, charges élevées sans services complémentaires. Ce profil guide la définition de trois actions de rétention ciblées générant un ROI de 865% annuel.
+L'analyse des 20 clients les plus à risque révèle un profil type exploitable : contrats mensuels, services fiber optic, faible ancienneté, charges élevées sans services complémentaires. Ce profil guide la définition de trois actions de rétention ciblées générant un ROI de 230% au mois 1 et un gain annuel net estimé à 19 300 euros.
 
 La comparaison Scikit-learn vs Spark MLlib confirme que pour le volume actuel de 7043 clients, Scikit-learn est plus adapté en termes de rapidité d'exécution et simplicité opérationnelle. Spark devient pertinent pour des volumes supérieurs à 1 million de clients ou pour du scoring temps réel distribué.
 
