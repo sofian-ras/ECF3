@@ -1,0 +1,9 @@
+{
+    "modele": "Spark LogisticRegression pond\u00e9r\u00e9",
+    "accuracy": 0.603,
+    "precision": 0.1954,
+    "recall": 0.5904,
+    "f1_score": 0.6638,
+    "auc": 0.6418,
+    "temps_execution_secondes": 2.562
+}

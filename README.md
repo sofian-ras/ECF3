@@ -18,25 +18,31 @@ Fichier : `03_DONNEES.csv`
 ## Structure du Projet
 
 ```
-ECF3/
-├── data/                          # Données sources
-│   └── 03_DONNEES.csv           # Dataset client (7043 lignes)
-├── notebooks/                     # Notebooks Jupyter
-│   └── RASMI_sofian_ecf3.ipynb  # Analyse ML principale
-├── outputs/                       # Résultats générés
-│   ├── predictions_test.csv     # Prédictions test
-│   ├── model_metrics.json       # Métriques modèles
-│   └── feature_importance.csv   # Importance features
-├── docs/                          # Documentation
-│   ├── rapport.md               # Rapport d'analyse
-│   ├── RGPD.md                  # Conformité RGPD
-│   └── DOCKER_GUIDE.md          # Guide rapide Docker
-├── requirements.txt             # Dépendances Python
-├── Dockerfile                   # Configuration image Docker
-├── docker-compose.yml           # Orchestration Docker
-├── .dockerignore               # Exclusions build Docker
-├── .gitignore                   # Exclusions versioning
-└── README.md                    # Ce fichier
+./
+├── README.md                     # Ce fichier (racine du dépôt)
+└── ECF3/
+   ├── data/                     # Données sources
+   │   └── 03_DONNEES.csv        # Dataset client (7043 lignes)
+   ├── notebooks/                # Notebooks Jupyter
+   │   └── RASMI_sofian_ecf3.ipynb
+   ├── outputs/                  # Résultats générés
+   │   ├── sklearn/              # Résultats Scikit-learn
+   │   │   ├── predictions_test.csv
+   │   │   ├── model_metrics.json
+   │   │   └── feature_importance.csv
+   │   └── spark/                # Résultats Spark MLlib
+   │       ├── predictions_spark.csv
+   │       ├── model_metrics_spark.json
+   │       └── feature_importance_spark.csv
+   ├── docs/                     # Documentation
+   │   ├── rapport.md
+   │   ├── RGPD.md
+   │   └── DOCKER_GUIDE.md
+   ├── requirements.txt
+   ├── Dockerfile
+   ├── docker-compose.yml
+   ├── .dockerignore
+   └── .gitignore
 ```
 
 ## Installation
@@ -53,18 +59,23 @@ Cette méthode garantit un environnement identique sur toutes les machines avec 
 
 1. Cloner le repository ou télécharger les fichiers
 
-2. Lancer le conteneur avec Docker Compose :
+2. Se placer dans le dossier projet :
+   ```bash
+   cd ECF3
+   ```
+
+3. Lancer le conteneur avec Docker Compose :
    ```bash
    docker compose up -d --build
    ```
 
-3. Accéder à Jupyter Notebook :
+4. Accéder à Jupyter Notebook :
    - Ouvrir votre navigateur à l'adresse : `http://localhost:8888`
    - Aucun token requis (accès direct)
 
-4. Naviguer dans le dossier `notebooks/` et ouvrir `RASMI_sofian_ecf3.ipynb`
+5. Naviguer dans le dossier `notebooks/` et ouvrir `RASMI_sofian_ecf3.ipynb`
 
-5. Arrêter le conteneur après utilisation :
+6. Arrêter le conteneur après utilisation :
    ```bash
    docker compose down
    ```
@@ -97,19 +108,24 @@ docker compose down -v
 
 1. Cloner le repository ou télécharger les fichiers
 
-2. Créer un environnement virtuel (optionnel mais recommandé)
+2. Se placer dans le dossier projet :
+   ```bash
+   cd ECF3
+   ```
+
+3. Créer un environnement virtuel (optionnel mais recommandé)
    ```bash
    python -m venv venv
    source venv/bin/activate  # Linux/Mac
    venv\Scripts\activate     # Windows
    ```
 
-3. Installer les dépendances
+4. Installer les dépendances
    ```bash
    pip install -r requirements.txt
    ```
 
-4. Lancer Jupyter Notebook
+5. Lancer Jupyter Notebook
    ```bash
    jupyter notebook
    ```
@@ -230,6 +246,7 @@ Les fichiers suivants sont générés lors de l'exécution du notebook :
 
 Voir `requirements.txt` pour les versions exactes. Installation rapide :
 ```bash
+cd ECF3
 pip install -r requirements.txt
 ```
 
@@ -243,7 +260,7 @@ Mars 2026
 
 ## Documentation Détaillée
 
-Pour une analyse approfondie des méthodologies, résultats détaillés et perspectives d'amélioration, consulter le fichier `rapport.md`.
+Pour une analyse approfondie des méthodologies, résultats détaillés et perspectives d'amélioration, consulter le fichier `ECF3/docs/rapport.md`.
 
 ## Notes d'Utilisation
 

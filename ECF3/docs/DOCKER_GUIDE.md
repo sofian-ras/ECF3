@@ -7,7 +7,11 @@
 - Linux : `sudo apt install docker.io docker-compose`
 
 ### 2. Lancer le projet
-Ouvrir un terminal dans le dossier ECF3 et exécuter :
+Depuis la racine du dépôt, exécuter :
+```bash
+cd ECF3
+```
+Puis lancer :
 ```bash
 docker compose up -d --build
 ```
@@ -17,7 +21,7 @@ docker compose up -d --build
 ### 3. Accéder à Jupyter
 - Ouvrir navigateur : http://localhost:8888
 - Pas de token/mot de passe requis
-- Ouvrir `RASMI_sofian_ecf3.ipynb`
+- Ouvrir `notebooks/RASMI_sofian_ecf3.ipynb`
 - Exécuter toutes les cellules : Kernel > Restart & Run All
 
 ## Vérifications
