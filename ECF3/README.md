@@ -34,8 +34,9 @@ ECF3/
 
 ### Prérequis
 
-- Python 3.11.9
+- Python 3.8+ (testé avec Python 3.11.9)
 - pip pour gérer les dépendances
+- Java 8+ (requis uniquement pour la section 5 Spark - BONUS)
 
 ### Étapes
 
@@ -182,6 +183,6 @@ Pour une analyse approfondie des méthodologies, résultats détaillés et persp
 
 - Le notebook utilise la seed aléatoire 42 pour la reproducibilité
 - Toutes les cellules Python sont commentées et expliquées
-- Les cellules doivent être exécutées de haut en bas
-- Spark nécessite une installation Java 8+ sur la machine
+- Les cellules doivent être exécutées de haut en bas (ou "Run All")
+- **Section 5 (Spark)** : Nécessite Java 8+. Cette section est un BONUS optionnel - les sections 1-4 couvrent tous les livrables obligatoires
 - Le preprocessing est intégré dans les pipelines pour éviter les fuites de données
