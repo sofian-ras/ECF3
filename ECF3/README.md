@@ -34,7 +34,7 @@ ECF3/
 
 ### Prérequis
 
-- Python 3.8 ou supérieur
+- Python 3.11.9
 - pip pour gérer les dépendances
 
 ### Étapes
