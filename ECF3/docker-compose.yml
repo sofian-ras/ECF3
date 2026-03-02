@@ -1,0 +1,25 @@
+services:
+  jupyter-ecf3:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ecf3-ml-churn
+    ports:
+      - "8888:8888"
+    volumes:
+      - .:/workspace
+      - jupyter-data:/root/.jupyter
+    environment:
+      - JUPYTER_ENABLE_LAB=no
+      - PYTHONUNBUFFERED=1
+    restart: unless-stopped
+    networks:
+      - ecf3-network
+
+networks:
+  ecf3-network:
+    driver: bridge
+
+volumes:
+  jupyter-data:
+    driver: local

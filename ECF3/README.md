@@ -19,28 +19,84 @@ Fichier : `03_DONNEES.csv`
 
 ```
 ECF3/
-├── RASMI_sofian_ecf3.ipynb      # Notebook Jupyter principal
-├── rapport.md                     # Rapport d'analyse complet
-├── 03_DONNEES.csv               # Dataset source
-├── predictions_test.csv         # Prédictions sur l'échantillon test
-├── model_metrics.json           # Métriques des modèles
-├── feature_importance.csv       # Importance des variables
+├── data/                          # Données sources
+│   └── 03_DONNEES.csv           # Dataset client (7043 lignes)
+├── notebooks/                     # Notebooks Jupyter
+│   └── RASMI_sofian_ecf3.ipynb  # Analyse ML principale
+├── outputs/                       # Résultats générés
+│   ├── predictions_test.csv     # Prédictions test
+│   ├── model_metrics.json       # Métriques modèles
+│   └── feature_importance.csv   # Importance features
+├── docs/                          # Documentation
+│   ├── rapport.md               # Rapport d'analyse
+│   ├── RGPD.md                  # Conformité RGPD
+│   └── DOCKER_GUIDE.md          # Guide rapide Docker
 ├── requirements.txt             # Dépendances Python
-├── .gitignore                   # Fichiers à ignorer en versioning
+├── Dockerfile                   # Configuration image Docker
+├── docker-compose.yml           # Orchestration Docker
+├── .dockerignore               # Exclusions build Docker
+├── .gitignore                   # Exclusions versioning
 └── README.md                    # Ce fichier
 ```
 
 ## Installation
 
-### Prérequis
+### Méthode 1 : Docker (RECOMMANDÉE)
+
+Cette méthode garantit un environnement identique sur toutes les machines avec Java et toutes les dépendances pré-installées.
+
+#### Prérequis
+- Docker Desktop installé ([télécharger ici](https://www.docker.com/products/docker-desktop))
+- Docker Compose inclus avec Docker Desktop
+
+#### Étapes
+
+1. Cloner le repository ou télécharger les fichiers
+
+2. Lancer le conteneur avec Docker Compose :
+   ```bash
+   docker compose up -d --build
+   ```
+
+3. Accéder à Jupyter Notebook :
+   - Ouvrir votre navigateur à l'adresse : `http://localhost:8888`
+   - Aucun token requis (accès direct)
+
+4. Naviguer dans le dossier `notebooks/` et ouvrir `RASMI_sofian_ecf3.ipynb`
+
+5. Arrêter le conteneur après utilisation :
+   ```bash
+   docker compose down
+   ```
+
+#### Commandes Docker utiles
+
+```bash
+# Construire l'image manuellement
+docker compose build
+
+# Voir les logs du conteneur
+docker compose logs -f
+
+# Redémarrer le conteneur
+docker compose restart
+
+# Supprimer le conteneur et les volumes
+docker compose down -v
+```
+
+### Méthode 2 : Installation locale (Alternative)
+
+#### Prérequis
 
 - Python 3.8+ (testé avec Python 3.11.9)
 - pip pour gérer les dépendances
 - Java 8+ (requis uniquement pour la section 5 Spark - BONUS)
 
-### Étapes
+#### Étapes
 
 1. Cloner le repository ou télécharger les fichiers
+
 2. Créer un environnement virtuel (optionnel mais recommandé)
    ```bash
    python -m venv venv
@@ -53,10 +109,20 @@ ECF3/
    pip install -r requirements.txt
    ```
 
-4. Lancer le notebook Jupyter
+4. Lancer Jupyter Notebook
    ```bash
-   jupyter notebook RASMI_sofian_ecf3.ipynb
+   jupyter notebook
    ```
+   Puis naviguer dans le dossier `notebooks/` et ouvrir `RASMI_sofian_ecf3.ipynb`
+
+## Avantages de la méthode Docker
+
+**Environnement identique** : Même configuration Python, Java et dépendances sur toutes les machines  
+**Installation simplifiée** : Une seule commande `docker compose up -d --build`  
+**Pas de conflit** : L'environnement est isolé de votre système  
+**Spark fonctionnel** : Java pré-installé pour la section 5 bonus  
+**Reproductibilité garantie** : Le jury exécutera exactement le même environnement  
+**Nettoyage facile** : Suppression complète avec `docker compose down -v`
 
 ## Contenu du Notebook
 
@@ -102,10 +168,10 @@ Le notebook est organisé en 5 sections principales et 1 section bonus :
 Modèle : Logistic Regression avec class_weight="balanced" et C=10
 
 Métriques sur l'échantillon test (2113 clients) :
-- Accuracy : 62,0%
-- Precision : 21,5%
-- Recall : 62,2% (priorité : détecter les churners)
-- F1-score : 32,0%
+- Accuracy : 61,8%
+- Precision : 21,3%
+- Recall : 61,5% (priorité : détecter les churners)
+- F1-score : 31,7%
 - AUC-ROC : 0,683
 
 ### Top 3 Features les Plus Importantes

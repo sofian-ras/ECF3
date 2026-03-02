@@ -59,7 +59,7 @@ Une validation croisée à 5 folds confirme la stabilité du modèle avec un rec
 
 ### Méthodologie Spark
 
-La section bonus reproduit l'analyse complète avec PySpark 3.4.1. Le preprocessing utilise StringIndexer pour l'encodage des catégorielles, VectorAssembler pour la création du vecteur de features, et StandardScaler pour la normalisation.
+La section bonus reproduit l'analyse complète avec PySpark 4.1.1. Le preprocessing utilise StringIndexer pour l'encodage des catégorielles, VectorAssembler pour la création du vecteur de features, et StandardScaler pour la normalisation.
 
 Trois modèles ont été entraînés : LogisticRegression standard, RandomForestClassifier, et LogisticRegression avec pondération des classes (weightCol). Le dataset est distribué avec un split 80/20.
 
@@ -284,6 +284,6 @@ La comparaison Scikit-learn vs Spark MLlib confirme que pour le volume actuel de
 
 La recommandation est de déployer le modèle en production immédiatement avec un pilote sur les 20 clients les plus à risque, puis de monter en charge progressivement vers les 100 premiers sur les trois prochains mois. Un monitoring continu et un réentraînement trimestriel garantiront la pérennité des performances.
 
-Les perspectives d'amélioration incluent l'intégration de nouvelles variables (réclamations, qualité réseau), le test de modèles avancés (XGBoost), l'optimisation du seuil de décision, et l'exploration de techniques de Survival Analysis pour prédire le timing du churn.
+Les perspectives d'amélioration incluent l'intégration de nouvelles variables (réclamations, qualité réseau), et l'exploration de techniques de Survival Analysis pour prédire le timing du churn.
 
 Ce projet établit une base solide pour une stratégie data-driven de rétention client, avec un potentiel d'économies de plusieurs dizaines de milliers d'euros annuels pour TeleCom+.
