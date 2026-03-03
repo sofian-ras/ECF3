@@ -269,3 +269,40 @@ Pour une analyse approfondie des méthodologies, résultats détaillés et persp
 - Les cellules doivent être exécutées de haut en bas (ou "Run All")
 - **Section 5 (Spark)** : Nécessite Java 8+. Cette section est un BONUS optionnel - les sections 1-4 couvrent tous les livrables obligatoires
 - Le preprocessing est intégré dans les pipelines pour éviter les fuites de données
+
+## Livraison au Jury
+
+### Contenu du zip à livrer
+
+Le dossier complet doit contenir :
+- README.md (ce fichier à la racine)
+- ECF3/ (dossier principal avec data/, notebooks/, outputs/, docs/)
+- .gitignore
+
+### Important : Ne PAS inclure le dossier .venv
+
+Le dossier .venv peut peser plus de 100 Mo et ne doit pas être inclus dans le zip de livraison. Les dépendances seront automatiquement installées selon la méthode choisie par le jury.
+
+### Exécution recommandée pour le jury
+
+Méthode Docker (recommandée) :
+```bash
+cd ECF3
+docker compose up -d --build
+```
+Accès : http://localhost:8888
+
+Aucune installation de dépendances nécessaire. Java est déjà inclus pour la section Spark bonus.
+
+### Exécution locale (alternative)
+
+Si Docker n'est pas disponible :
+```bash
+cd ECF3
+python -m venv .venv
+.venv\Scripts\activate  # Windows
+pip install -r requirements.txt
+jupyter notebook
+```
+
+La section 5 (Spark) nécessite Java 8+ en installation locale. Les sections 1-4 fonctionnent sans Java.
